@@ -3,8 +3,13 @@ on:
   push:
     branches: [ "master" ]
 
+
 jobs:
   test:
+  env:
+    TEST = "This is a test"
+
+  
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -13,6 +18,9 @@ jobs:
       with:
         node-version:  21
         cache: 'npm'
+    
+    - name: Check Environment
+      run: echo "$TEST"
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
