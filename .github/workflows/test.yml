@@ -6,10 +6,6 @@ on:
 
 jobs:
   test:
-  env:
-    TEST = "This is a test"
-
-  
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
